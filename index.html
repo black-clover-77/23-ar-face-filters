@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AR Face Filters | Unique Feature</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../shared/mobile.css" />
+    <link rel="stylesheet" href="../shared/experience-kit.css" />
+    <link rel="stylesheet" href="../shared/fx-kit.css" />
+    <link rel="stylesheet" href="../shared/engagement-kit.css" />
+    <link rel="stylesheet" href="../shared/soundkit.css" />
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jeelizfacefilter/dist/jeelizFaceFilter.js"></script>
+</head>
+<body>
+    <div id="loader">
+        <div class="loader-bar"><div class="loader-progress"></div></div>
+        <p style="letter-spacing: 5px; font-size: 0.7rem;">SYNCING BIOMETRICS...</p>
+    </div>
+
+    <div class="feature-tag">CORE_FEATURE_23</div>
+
+    <audio id="bg-audio" loop>
+        <source src="https://cdn.pixabay.com/audio/2021/11/25/audio_1e3a9a1e9a.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="audio-toggle">🎵</button>
+
+    <div id="app">
+        <div id="video-container">
+            <video id="webcam" playsinline autoplay muted></video>
+            <canvas id="overlay"></canvas>
+        </div>
+        <div class="hud"></div>
+        <div class="controls">
+            <button class="btn active" data-filter="neon">Neon</button>
+            <button class="btn" data-filter="cyber">Cyber</button>
+            <button class="btn" data-filter="glitch">Glitch</button>
+        </div>
+    </div>
+
+    <footer class="github-badge">
+        <a href="https://github.com/AkshatRock/weboreel-hackathon" target="_blank">⭐ GitHub Repo</a>
+        <span>VishwaNova 2026</span>
+    </footer>
+
+    <script src="../shared/soundkit.js" defer></script>
+    <script src="../shared/experience-kit.js" defer></script>
+    <script src="../shared/engagement-kit.js" defer></script>
+    <script src="../shared/experience-configs-22-50.js" defer></script>
+    <script src="../shared/fx-kit.js" defer></script>
+    <script src="script.js"></script>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const parts = location.pathname.split("/").filter(Boolean);
+        const slug = parts[parts.length - 2] || "";
+        const cfg = window.WeboReelsExperienceConfigs22to50?.[slug] || { title: document.title };
+        window.WeboReelsExperienceKit?.init?.(cfg);
+      });
+    </script>
+</body>
+</html>
